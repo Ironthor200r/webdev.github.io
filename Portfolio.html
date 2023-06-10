@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      position: relative;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      will-change: opacity;
+    }
+
+    .fade-in {
+      opacity: 1 !important;
+    }
+
+    #introduction {
+      background-color: var(--primary-color);
+    }
+
+    #education {
+      background-color: var(--secondary-color);
+    }
+
+    #skills {
+      background-color: var(--accent-color);
+    }
+
+    #projects {
+      background-color: #8e44ad;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .navigation button {
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .navigation button:hover {
+      background-color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="navigation">
+    <button onclick="scrollToSection('introduction')">Introduction</button>
+    <button onclick="scrollToSection('education')">Education</button>
+    <button onclick="scrollToSection('skills')">Skills</button>
+    <button onclick="scrollToSection('projects')">Projects</button>
+  </div>
+ <section id="introduction">
+  <h1>Welcome to My Portfolio</h1>
+  <p>Hi there! I'm Aakash Mittal, a passionate computer science enthusiast with a core interest in exploring the vast world of technology. Currently pursuing my Bachelor's degree in Computer Science Engineering at VIT Vellore, I strive to learn and discover new things every day.
+  With a strong foundation in programming and problem-solving, I am always eager to take on challenges and find innovative solutions. I have a keen interest in web development, artificial intelligence, and data science. I believe that continuous learning and adaptability are key to staying ahead in the ever-evolving tech industry.
+  In my free time, you'll often find me experimenting with new technologies, reading tech blogs, or engaging in coding competitions. I am also an avid traveler and love exploring different cultures and cuisines.
+  Feel free to browse through my portfolio and explore the projects I have worked on. If you have any questions or would like to collaborate on an exciting project, don't hesitate to get in touch with me.</p>
+</section>
+
+  <section id="education">
+  <h1>Education</h1>
+  <div class="education-item">
+    <h2>Bachelor's Degree in Computer Science Engineering</h2>
+    <h3>VIT Vellore, India</h3>
+    <p>2022 - Present</p>
+    <p>I am currently pursuing my Bachelor's degree in Computer Science Engineering from VIT Vellore. The program has provided me with a strong foundation in computer science principles, programming languages, algorithms, and data structures.</p>
+  </div>
+  <div class="education-item">
+    <h2> Schooling</h2>
+    <h3>DPS Noida, India</h3>
+    <p>I completed my high school education from Delhi Public School (DPS) in Noida. During this time, I developed a passion for mathematics and computer science, which laid the groundwork for my future academic pursuits.</p>
+  </div>
+</section>
+
+  <section id="skills">
+  <h1>Skills</h1>
+  <ul>
+    <li>HTML5</li>
+    <li>CSS3</li>
+    <li>JavaScript</li>
+    <li>Python</li>
+    <li>Basic Programming Concepts</li>
+    <li>Problem Solving</li>
+    <li>Git and Version Control</li>
+    <li>Responsive Web Design</li>
+    <li>C language</li>
+    <li>C++</li>
+  </ul>
+</section>
+
+  <section id="projects">
+    <h1>Projects</h1>
+    <p>This is the projects section.</p>
+  </section>
+  <footer>
+    <p>&copy; 2023  Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const options = {
+      rootMargin: '0px',
+      threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        } else {
+          entry.target.classList.remove('fade-in');
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
